@@ -37,10 +37,11 @@ WooCommerce, for one. Support for other carts will depend on demand. Request one
 
 == Changelog ==
 
-= 0.3.2 =
+= 0.3.4 =
 * First release into the wild.
 
 == Upgrade Notice ==
 
-= 0.3.2 =
+= 0.3.4 =
 No upgrades yet.
+
