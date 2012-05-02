@@ -13,7 +13,8 @@ Cartalog allows you to add product listings quickly and easily to any page on yo
 
 Cartalog is a companion plugin to the Cart66 product, the Lite or Pro version, you're choice.
 It provides a quick and easy way to add product listings, by category if desired, to any page
-on your site. Using just a couple of shortcodes you can add product shots, links to detail pages, descriptions and a fully capable Cart66 "Add to Cart" button. For multiple product categories you
+on your site. Using just a couple of shortcodes you can add product shots, links to detail pages,
+descriptions and a fully capable Cart66 "Add to Cart" button. For multiple product categories you
 can group items into category groups with nice headings and titles.
 
 == Installation ==
