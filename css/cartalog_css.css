@@ -1,0 +1,61 @@
+.categoryTitle {
+    font-weight: bold;
+    font-size: 140%;
+    margin: 0;
+    padding: 10px 15px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px; 
+    text-shadow: 0px -1px 0px #333;
+    filter: dropshadow(color=#333, offx=0, offy=-1);
+}
+
+article.storeItem {
+    margin: 10px 0 15px 15px;
+    padding: 5px;
+    float: left;
+}
+
+section.si_picture {
+    margin: 0;
+    padding: 0;
+	height: 100px;
+	overflow: hidden;
+}
+
+section.si_title {
+    font-size: 120%;
+    margin: 6px 0;
+    padding: 0;
+}
+
+span.more_info_link {
+    font-size: 70%;
+    display:block;
+}
+
+section.si_description {
+    margin: 0 0 10px 0;
+    padding: 0;
+}
+
+label.cartalog_label {
+    display:inline-block;
+    width:150px;
+    margin-left: 40px;
+}
+
+.cf:before,
+.cf:after {
+    content:"";
+    display:table;
+}
+ 
+.cf:after {
+    clear:both;
+}
+ 
+/* For IE 6/7 (trigger hasLayout) */
+.cf {
+    zoom:1;
+}
