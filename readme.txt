@@ -51,3 +51,4 @@ Support for other carts will depend on demand. Request one if you like.
 
 = 0.3.4 =
 No upgrades yet.
+
