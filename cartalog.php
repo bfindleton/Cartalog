@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Cartalog
-Plugin URI: http://www.arbalestmedia.com
+Plugin URI: http://www.arbalestmedia.com/cartalog
 Description: Wordpress Shopping Cart Catalog add-on
 Version: 0.3.5
 Author: Bruce Findleton
