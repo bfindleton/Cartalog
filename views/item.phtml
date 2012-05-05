@@ -29,7 +29,7 @@
     echo "</section>";
 ?>
 
-    <section class="si_title"><?php if($detail_link):echo $detail_link; endif; ?><?php echo $args['title']; ?><?php if($detail_link):echo "</a>"; endif; ?></section>
+    <section class="si_title"><?php if($detail_link):echo $detail_link; endif; ?><?php echo $args['title']; ?><?php if($detail_link):echo '<span class="more_info_link">more info...</span></a>'; endif; ?></section>
 
     <section class="si_description"><?php echo $args['desc']; ?></section>
 

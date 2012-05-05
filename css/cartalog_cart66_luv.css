@@ -1,0 +1,27 @@
+﻿#Cart66AdvancedSidebarAjax {
+    padding: 0 10px 5px;
+}
+
+#Cart66WidgetCartEmptyAdvanced {
+    padding: 10px 0;
+    font-weight: bold;
+}
+
+.widget.Cart66CartWidget {
+    margin-top: 0;
+}
+
+article.storeItem {
+	position:relative;
+}
+
+.Cart66Success,
+.Cart66Error, .Cart66Warning {
+  position:absolute;
+  top:20px;
+  left:0px;
+}
+
+.Cart66CartButton .purAddToCart {
+	margin-top: 3px;
+}
