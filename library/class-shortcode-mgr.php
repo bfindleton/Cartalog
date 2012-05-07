@@ -54,4 +54,21 @@ class Shortcode_Mgr
         return $view;
     }
 
+    public function showTax($attr, $content)
+    {
+        $defaults = array
+        (
+            'title' => null,
+            'style' => null,
+            'class' => null,
+        );
+        
+        $args = shortcode_atts($defaults, $attr);
+        
+        $view = Cartalog::getView('views/showtax.phtml', $args, $content);
+        
+        return $view;
+
+    }
+
 }

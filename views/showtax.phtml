@@ -1,0 +1,11 @@
+<?php // Category template ?>
+
+<div class="cartalogTaxes <?php if (null !== $args['class']) : echo $args['class']; endif; ?> cf">
+
+    <div class="taxTitle"<?php
+        if (null !== $args['style']) {
+            echo ' style="' . $args['style'] . '"';
+        }
+    ?>><?php echo $args['title'] ?></div>
+</div>
+
