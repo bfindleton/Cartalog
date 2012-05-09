@@ -1,7 +1,11 @@
 <?php // Item template ?>
 <?php
     if($args['detail']){
-        $detail_link = '<a href="' . get_permalink($args['detail']) . '">';
+        if('yes' == $args['ajax']){
+            $detail_link = '<a href="#" onClick="show_detail(' . $args['detail'] . ')">';
+        } else {
+            $detail_link = '<a href="' . get_permalink($args['detail']) . '">';
+        }
     }
     else {
         $detail_link = null;
@@ -14,8 +18,9 @@
     }
 ?>
 
-
 <article class="storeItem<?php if($args['class']) : echo ' ' . $args['class']; endif; ?>"<?php if($args['item_style']) : echo ' style="' . $args['item_style'] . '"'; endif; ?>>
+
+<div class="detail_display detail_display_area_<?php echo $args['detail'] ?>"></div>
 
 <?php
     echo '<section class="si_picture">';

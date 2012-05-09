@@ -29,8 +29,11 @@ class Cartalog {
             add_action('admin_menu', array($this, 'initAdmin'));
         } else {
             $this->initShortCodes();
-            add_action('wp_head', array($this,'cartalogStyles'));
         }
+
+        add_action('wp_head', array($this,'cartalogStyles'));
+        add_action('wp_ajax_ajax_display', array($this, 'ajax_display_modal'));
+        add_action('wp_ajax_nopriv_ajax_display', array($this, 'ajax_display_modal'));
     }
 
     public function initOptions()
@@ -40,6 +43,7 @@ class Cartalog {
             $defaults = array(
                 'version' => CARTALOG_VERSION,
                 'cart_vendor' => 'Cart66',
+                'ui_theme'    => 'redmond',
                 'category_width' => '710px',
                 'category_background' => '#2f8aba',
                 'category_color' => '#FFFFFF',
@@ -51,11 +55,38 @@ class Cartalog {
                 'cart_vendors' => array(
                     'Cart66' => CART_CART66,
                     'WooCommerce' => CART_WOOCOM),
+                'ui_themes'           => array(
+                    'Base'                => 'base',
+                    'Black-tie'           => 'black-tie',
+                    'Blitzer'             => 'blitzer',
+                    'Cupertino'           => 'cupertino',
+                    'Dark hive'           => 'dark-hive',
+                    'Dot luv'             => 'dot-luv',
+                    'Eggplant'            => 'eggplant',
+                    'Excite bike'         => 'excite-bike',
+                    'Flick'               => 'flick',
+                    'Hot sneaks'          => 'hot-sneaks',
+                    'Humanity'            => 'humanity',
+                    'le Frog'             => 'le-frog',
+                    'Mint choc'           => 'mint-choc',
+                    'Overcast'            => 'overcast',
+                    'Pepper grinder'      => 'pepper-grinder',
+                    'Redmond'             => 'redmond',
+                    'Smoothness'          => 'smoothness',
+                    'South street'        => 'south-street',
+                    'Start'               => 'start',
+                    'Sunny'               => 'sunny',
+                    'Swanky Purse'        => 'swanky-purse',
+                    'Trontastic'          => 'trontastic',
+                    'ui-darkness'         => 'ui-darkness',
+                    'ui-lightness'        => 'ui-lightness',
+                    'Vader'               => 'vader')
                 );
         } elseif ( CARTALOG_VERSION !== $version ) {
             $defaults = array(
                 'version'             => CARTALOG_VERSION,
                 'cart_vendor'         => $this->_options->cart_vendor,
+                'ui_theme'            => $this->_options->ui_theme,
                 'category_width'      => $this->_options->category_width,
                 'category_background' => $this->_options->category_background,
                 'category_color'      => $this->_options->category_color,
@@ -67,6 +98,32 @@ class Cartalog {
                 'cart_vendors'        => array(
                     'Cart66'              => CART_CART66,
                     'WooCommerce'         => CART_WOOCOM),
+                'ui_themes'           => array(
+                    'Base'                => 'base',
+                    'Black-tie'           => 'black-tie',
+                    'Blitzer'             => 'blitzer',
+                    'Cupertino'           => 'cupertino',
+                    'Dark hive'           => 'dark-hive',
+                    'Dot luv'             => 'dot-luv',
+                    'Eggplant'            => 'eggplant',
+                    'Excite bike'         => 'excite-bike',
+                    'Flick'               => 'flick',
+                    'Hot sneaks'          => 'hot-sneaks',
+                    'Humanity'            => 'humanity',
+                    'le Frog'             => 'le-frog',
+                    'Mint choc'           => 'mint-choc',
+                    'Overcast'            => 'overcast',
+                    'Pepper grinder'      => 'pepper-grinder',
+                    'Redmond'             => 'redmond',
+                    'Smoothness'          => 'smoothness',
+                    'South street'        => 'south-street',
+                    'Start'               => 'start',
+                    'Sunny'               => 'sunny',
+                    'Swanky Purse'        => 'swanky-purse',
+                    'Trontastic'          => 'trontastic',
+                    'ui-darkness'         => 'ui-darkness',
+                    'ui-lightness'        => 'ui-lightness',
+                    'Vader'               => 'vader')
                 );
             $this->_options->delete();
         } else {
@@ -78,6 +135,24 @@ class Cartalog {
 
     public function initEnq()
     {
+        wp_enqueue_script('jquery-ui-dialog');
+        wp_enqueue_script('display_script', CARTALOG_URL . '/js/display_script.js', array( 'jquery' ), '7' );
+
+        wp_localize_script(
+                'display_script',
+                'ajax_object',
+                array(
+                    'ajaxurl' => admin_url( 'admin-ajax.php' ),
+                    'displayNonce' => wp_create_nonce( 'my_display_nonce' )
+                )
+        );
+
+        // $ui_url = CARTALOG_URL . '/css/jquery-ui-1.8.20.custom.css';
+        $ui_theme = $this->_options->getOption('ui_theme');
+        $ui_url = 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/' . $ui_theme . '/jquery-ui.css';
+        
+        wp_enqueue_style( 'custom-jquery-ui-dialog', $ui_url );
+
         $url = CARTALOG_URL . '/css/cartalog_css.css';
         wp_enqueue_style('cartalog-css', $url);
         // wp_enqueue_style('cartalog-css', $url, null, CARTALOG_VERSION);
@@ -146,6 +221,33 @@ article.storeItem {
 }
 </style>
 <?php
+    }
+
+    function ajax_display_modal()
+    {
+        $nonce = $_POST['displayNonce'];
+
+        if( ! wp_verify_nonce( $nonce, 'my_display_nonce' ) ) {
+            die ( "Oh no you don't!" );
+        }
+
+        $postID = $_POST['postID'];
+
+        // get page data
+        $content = get_post($postID, ARRAY_A);
+
+        // Can't use for cart button because of id duplication
+        // Cart66::initShortcodes();
+        // $content = do_shortcode($content);
+
+        echo '<div class="entry" style="padding: 10px 10px 0;">';
+        echo '<h2>' . $content['post_title'] . '</h2>';
+        echo '<p></p>';
+        echo $content['post_content'];
+        echo '</div>';
+        // var_dump($content);
+
+        exit;
     }
 
     public function uninstall()

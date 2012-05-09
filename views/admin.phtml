@@ -17,6 +17,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['save-it'] == 'true') {
 // var_dump($args);
 
 $carts = array_keys($args['cart_vendors']);
+$ui_themes = $args['ui_themes'];
 
 
 ?>
@@ -53,6 +54,24 @@ $carts = array_keys($args['cart_vendors']);
         }
 ?>
     <option value="<?php echo $cart?>" <?php echo $selected?>><?php echo $cart?></option>
+<?php
+    } ?>
+</select>
+</li>
+
+                <li>
+<label class="cartalog_label" for="options-ui_theme">jQuery UI Theme *</label>
+<select id="options-ui_theme" name='options[ui_theme]'>
+<?php
+    foreach($ui_themes as $name => $value){
+        if($value === $args['ui_theme']){
+            $selected = "selected";
+        }
+        else {
+            $selected = "";
+        }
+?>
+    <option value="<?php echo $value?>" <?php echo $selected?>><?php echo $name?></option>
 <?php
     } ?>
 </select>
