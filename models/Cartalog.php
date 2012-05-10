@@ -53,36 +53,6 @@ class Cartalog {
                 'item_border' => null,
                 'item_modal' => null,
                 'custom_styles' => null,
-                'cart_vendors' => array(
-                    'Cart66' => CART_CART66,
-                    'WooCommerce' => CART_WOOCOM),
-                'ui_themes'           => array(
-                    'None'                => 'none',
-                    'Base'                => 'base',
-                    'Black-tie'           => 'black-tie',
-                    'Blitzer'             => 'blitzer',
-                    'Cupertino'           => 'cupertino',
-                    'Dark hive'           => 'dark-hive',
-                    'Dot luv'             => 'dot-luv',
-                    'Eggplant'            => 'eggplant',
-                    'Excite bike'         => 'excite-bike',
-                    'Flick'               => 'flick',
-                    'Hot sneaks'          => 'hot-sneaks',
-                    'Humanity'            => 'humanity',
-                    'le Frog'             => 'le-frog',
-                    'Mint choc'           => 'mint-choc',
-                    'Overcast'            => 'overcast',
-                    'Pepper grinder'      => 'pepper-grinder',
-                    'Redmond'             => 'redmond',
-                    'Smoothness'          => 'smoothness',
-                    'South street'        => 'south-street',
-                    'Start'               => 'start',
-                    'Sunny'               => 'sunny',
-                    'Swanky Purse'        => 'swanky-purse',
-                    'Trontastic'          => 'trontastic',
-                    'ui-darkness'         => 'ui-darkness',
-                    'ui-lightness'        => 'ui-lightness',
-                    'Vader'               => 'vader')
                 );
         } elseif ( CARTALOG_VERSION !== $version ) {
             $defaults = array(
@@ -98,36 +68,6 @@ class Cartalog {
                 'item_border'         => $this->_options->item_border,
                 'item_modal'          => $this->_options->item_modal,
                 'custom_styles'       => $this->_options->custom_styles,
-                'cart_vendors'        => array(
-                    'Cart66'              => CART_CART66,
-                    'WooCommerce'         => CART_WOOCOM),
-                'ui_themes'           => array(
-                    'None'                => 'none',
-                    'Base'                => 'base',
-                    'Black-tie'           => 'black-tie',
-                    'Blitzer'             => 'blitzer',
-                    'Cupertino'           => 'cupertino',
-                    'Dark hive'           => 'dark-hive',
-                    'Dot luv'             => 'dot-luv',
-                    'Eggplant'            => 'eggplant',
-                    'Excite bike'         => 'excite-bike',
-                    'Flick'               => 'flick',
-                    'Hot sneaks'          => 'hot-sneaks',
-                    'Humanity'            => 'humanity',
-                    'le Frog'             => 'le-frog',
-                    'Mint choc'           => 'mint-choc',
-                    'Overcast'            => 'overcast',
-                    'Pepper grinder'      => 'pepper-grinder',
-                    'Redmond'             => 'redmond',
-                    'Smoothness'          => 'smoothness',
-                    'South street'        => 'south-street',
-                    'Start'               => 'start',
-                    'Sunny'               => 'sunny',
-                    'Swanky Purse'        => 'swanky-purse',
-                    'Trontastic'          => 'trontastic',
-                    'ui-darkness'         => 'ui-darkness',
-                    'ui-lightness'        => 'ui-lightness',
-                    'Vader'               => 'vader')
                 );
             $this->_options->delete();
         } else {
