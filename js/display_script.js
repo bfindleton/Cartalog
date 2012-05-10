@@ -1,6 +1,6 @@
 function show_detail(postID){
-	$j = jQuery.noConflict();
-    $j.post(
+	$jq = jQuery.noConflict();
+    $jq.post(
         ajax_object.ajaxurl,
         {
             action : 'ajax_display',
@@ -10,8 +10,8 @@ function show_detail(postID){
             displayNonce : ajax_object.displayNonce
         },
         function( response ) {
-            var divID = $j(".detail_display_area_" + postID);
-			$j(divID)
+            var divID = $jq(".detail_display_area_" + postID);
+			$jq(divID)
 				.html(response)
 				.dialog({
 					'modal': true,
@@ -22,12 +22,12 @@ function show_detail(postID){
 					'dialogClass': 'wp-dialog',
 					'buttons' : {
 						"Close" : function() {
-							$j(this).dialog('close');
-							$j(this).empty();
+							$jq(this).dialog('close');
+							$jq(this).empty();
 						}
 					}
 				});
-			$j('.detail_controls').remove();
+			$jq('.detail_controls').remove();
         }
     );
 }

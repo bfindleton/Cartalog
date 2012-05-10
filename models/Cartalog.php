@@ -51,11 +51,13 @@ class Cartalog {
                 'item_background' => null,
                 'item_color' => '#000000',
                 'item_border' => null,
+                'item_modal' => null,
                 'custom_styles' => null,
                 'cart_vendors' => array(
                     'Cart66' => CART_CART66,
                     'WooCommerce' => CART_WOOCOM),
                 'ui_themes'           => array(
+                    'None'                => 'none',
                     'Base'                => 'base',
                     'Black-tie'           => 'black-tie',
                     'Blitzer'             => 'blitzer',
@@ -94,11 +96,13 @@ class Cartalog {
                 'item_background'     => $this->_options->item_background,
                 'item_color'          => $this->_options->item_color,
                 'item_border'         => $this->_options->item_border,
+                'item_modal'          => $this->_options->item_modal,
                 'custom_styles'       => $this->_options->custom_styles,
                 'cart_vendors'        => array(
                     'Cart66'              => CART_CART66,
                     'WooCommerce'         => CART_WOOCOM),
                 'ui_themes'           => array(
+                    'None'                => 'none',
                     'Base'                => 'base',
                     'Black-tie'           => 'black-tie',
                     'Blitzer'             => 'blitzer',
