@@ -79,23 +79,32 @@ class Cartalog {
 
     public function initEnq()
     {
-        wp_enqueue_script('jquery-ui-dialog');
-        wp_enqueue_script('display_script', CARTALOG_URL . '/js/display_script.js', array( 'jquery' ), '7' );
+        if ( '1' === $this->_options->getOption( 'item_modal' ) ) {
 
-        wp_localize_script(
-                'display_script',
-                'ajax_object',
-                array(
-                    'ajaxurl' => admin_url( 'admin-ajax.php' ),
-                    'displayNonce' => wp_create_nonce( 'my_display_nonce' )
-                )
-        );
+            wp_enqueue_script( 'jquery-ui-dialog' );
 
-        // $ui_url = CARTALOG_URL . '/css/jquery-ui-1.8.20.custom.css';
-        $ui_theme = $this->_options->getOption('ui_theme');
-        $ui_url = 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/' . $ui_theme . '/jquery-ui.css';
-        
-        wp_enqueue_style( 'custom-jquery-ui-dialog', $ui_url );
+            wp_enqueue_script(
+                    'display_script',
+                    CARTALOG_URL . '/js/display_script.js',
+                    array( 'jquery' ),
+                    '7',
+                    true
+            );
+
+            wp_localize_script(
+                    'display_script',
+                    'ajax_object',
+                    array(
+                        'ajaxurl' => admin_url( 'admin-ajax.php' ),
+                        'displayNonce' => wp_create_nonce( 'my_display_nonce' )
+                    )
+            );
+
+            $ui_theme = $this->_options->getOption('ui_theme');
+            $ui_url = 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/' . $ui_theme . '/jquery-ui.css';
+            
+            wp_enqueue_style( 'custom-jquery-ui-dialog', $ui_url );
+        }
 
         $url = CARTALOG_URL . '/css/cartalog_css.css';
         wp_enqueue_style('cartalog-css', $url);
