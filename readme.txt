@@ -4,7 +4,11 @@ Donate link: http://arbalestmedia.com/cartalog
 Tags: ecommerce, catalog, cart66, cart, store
 Requires at least: 3.3
 Tested up to: 3.3.2
+<<<<<<< HEAD
 Stable tag: 0.3.5
+=======
+Stable tag: 0.4.0
+>>>>>>> f4d9564e852316b15e97361de688c5ff324b897b
 License: GPLv2
 
 Cartalog allows you to add product listings quickly and easily to any page on your Cart66 enabled site.
@@ -40,6 +44,12 @@ Support for other carts will depend on demand. Request one if you like.
 
 == Changelog ==
 
+<<<<<<< HEAD
+=======
+= 0.4.0 =
+* Added modal detail display popups
+
+>>>>>>> f4d9564e852316b15e97361de688c5ff324b897b
 = 0.3.5 =
 * Added a "more info" link to item title.
 * Added two CSS files, one to demonstrate overriding Cartalog values and one for use in Cart66 to help tame a few display issues.
@@ -49,6 +59,12 @@ Support for other carts will depend on demand. Request one if you like.
 
 == Upgrade Notice ==
 
+<<<<<<< HEAD
+=======
+= 0.4.0 =
+* Added modal detail display popups, changes settings config
+
+>>>>>>> f4d9564e852316b15e97361de688c5ff324b897b
 = 0.3.4 =
 No upgrades yet.
 

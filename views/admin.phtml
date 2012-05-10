@@ -4,6 +4,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['save-it'] == 'true') {
     if(!array_key_exists('item_border', $_POST['options'])) {
         $_POST['options']['item_border'] = null;
     }
+    if(!array_key_exists('item_modal', $_POST['options'])) {
+        $_POST['options']['item_modal'] = null;
+    }
     foreach ( $_POST['options'] as $name => $value ) {
         if ( ! is_array($value) ) {
             $_POST['options'][$name] = sanitize_text_field($value);
@@ -16,7 +19,41 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['save-it'] == 'true') {
 }
 // var_dump($args);
 
-$carts = array_keys($args['cart_vendors']);
+$defaults = array(
+    'cart_vendors' => array(
+        'Cart66' => CART_CART66,
+        'WooCommerce' => CART_WOOCOM),
+    'ui_themes'           => array(
+        'None'                => 'none',
+        'Base'                => 'base',
+        'Black-tie'           => 'black-tie',
+        'Blitzer'             => 'blitzer',
+        'Cupertino'           => 'cupertino',
+        'Dark hive'           => 'dark-hive',
+        'Dot luv'             => 'dot-luv',
+        'Eggplant'            => 'eggplant',
+        'Excite bike'         => 'excite-bike',
+        'Flick'               => 'flick',
+        'Hot sneaks'          => 'hot-sneaks',
+        'Humanity'            => 'humanity',
+        'le Frog'             => 'le-frog',
+        'Mint chocolate'      => 'mint-choc',
+        'Overcast'            => 'overcast',
+        'Pepper grinder'      => 'pepper-grinder',
+        'Redmond'             => 'redmond',
+        'Smoothness'          => 'smoothness',
+        'South street'        => 'south-street',
+        'Start'               => 'start',
+        'Sunny'               => 'sunny',
+        'Swanky Purse'        => 'swanky-purse',
+        'Trontastic'          => 'trontastic',
+        'ui-darkness'         => 'ui-darkness',
+        'ui-lightness'        => 'ui-lightness',
+        'Vader'               => 'vader')
+    );
+
+$carts = array_keys($defaults['cart_vendors']);
+$ui_themes = $defaults['ui_themes'];
 
 
 ?>
@@ -125,6 +162,29 @@ $carts = array_keys($args['cart_vendors']);
 <input class="cartalog_input" type="checkbox" <?php if ($args['item_border'] === '1') : echo 'checked="checked" '; endif; ?> id="options-item_border" name="options[item_border]" value="1" />
 </li>
 
+<li>
+<label class="cartalog_label" for="options-item_modal">Modal Detail Display</label>
+<input class="cartalog_input" type="checkbox" <?php if ($args['item_modal'] === '1') : echo 'checked="checked" '; endif; ?> id="options-item_modal" name="options[item_modal]" value="1" />
+</li>
+
+
+<li>
+<label class="cartalog_label" for="options-ui_theme">jQuery UI Theme</label>
+<select id="options-ui_theme" name='options[ui_theme]'>
+<?php
+    foreach($ui_themes as $name => $value){
+        if($value === $args['ui_theme']){
+            $selected = "selected";
+        }
+        else {
+            $selected = "";
+        }
+?>
+    <option value="<?php echo $value?>" <?php echo $selected?>><?php echo $name?></option>
+<?php
+    } ?>
+</select>
+</li>
 
 
 
