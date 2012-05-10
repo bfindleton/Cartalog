@@ -1,0 +1,53 @@
+<?php // Item template ?>
+<?php
+    if($args['detail']){
+        if('1' == $args['item_modal']){
+            $detail_link = '<a href="#" onClick="show_detail(' . $args['detail'] . ')">';
+        } else {
+            $detail_link = '<a href="' . get_permalink($args['detail']) . '">';
+        }
+    }
+    else {
+        $detail_link = null;
+    }
+    if($args['picture']){
+        $picture = '<img class="alignnone size-full" alt="product picture" src="' . $args['picture'] . '" title="' . $args['item'] . '" />';
+    }
+    else {
+        $picture = '<h3>No picture</h3>';
+    }
+?>
+
+<article class="storeItem<?php if($args['class']) : echo ' ' . $args['class']; endif; ?>"<?php if($args['item_style']) : echo ' style="' . $args['item_style'] . '"'; endif; ?>>
+
+<div class="detail_display detail_display_area_<?php echo $args['detail'] ?>"></div>
+
+<?php
+    echo '<section class="si_picture">';
+    if($detail_link) {
+        echo $detail_link;
+    }
+    echo $picture;
+    if($detail_link){
+        echo "</a>";
+    }
+    echo "</section>";
+?>
+
+    <section class="si_title"><?php if($detail_link):echo $detail_link; endif; ?><?php echo $args['title']; ?><?php if($detail_link):echo '<span class="more_info_link">more info...</span></a>'; endif; ?></section>
+
+    <section class="si_description"><?php echo $args['desc']; ?></section>
+
+<?php
+    switch($args['cart']){
+        case 'Cart66':
+            echo Cart66ShortcodeManager::showCartButton($args, null);
+            break;
+        case 'WooCommerce':
+            echo '<p>Coming Soon</p>';
+            break;
+    }
+?>
+
+</article>
+
