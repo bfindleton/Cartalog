@@ -100,8 +100,10 @@ class Cartalog {
                     )
             );
 
-            $ui_theme = $this->_options->getOption('ui_theme');
-            $ui_url = 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/' . $ui_theme . '/jquery-ui.css';
+            if ( 'none' !== $this->_options->getOption( 'ui_theme' ) ) {
+                $ui_theme = $this->_options->getOption('ui_theme');
+                $ui_url = 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/' . $ui_theme . '/jquery-ui.css';
+            }
             
             wp_enqueue_style( 'custom-jquery-ui-dialog', $ui_url );
         }
@@ -160,11 +162,11 @@ class Cartalog {
   color: <?php echo $this->_options->getOption('category_color'); ?>;
 <?php endif; ?>
 }
-.categoryTitle a {
 <?php if($this->_options->getOption('category_color') !== "") : ?>
+.categoryTitle a {
   color: <?php echo $this->_options->getOption('category_color'); ?>;
-<?php endif; ?>
 }
+<?php endif; ?>
 article.storeItem {
   width: <?php echo $this->_options->getOption('item_width'); ?>;
 <?php if($this->_options->getOption('item_background') !== "") : ?>
@@ -203,7 +205,6 @@ article.storeItem {
         echo '<p></p>';
         echo $content['post_content'];
         echo '</div>';
-        // var_dump($content);
 
         exit;
     }

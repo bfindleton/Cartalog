@@ -1,4 +1,5 @@
-function show_detail(postID){
+function show_detail(evt, postID){
+    evt.preventDefault();
 	$jq = jQuery.noConflict();
     $jq.post(
         ajax_object.ajaxurl,
