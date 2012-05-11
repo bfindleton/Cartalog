@@ -160,6 +160,11 @@ class Cartalog {
   color: <?php echo $this->_options->getOption('category_color'); ?>;
 <?php endif; ?>
 }
+.categoryTitle a {
+<?php if($this->_options->getOption('category_color') !== "") : ?>
+  color: <?php echo $this->_options->getOption('category_color'); ?>;
+<?php endif; ?>
+}
 article.storeItem {
   width: <?php echo $this->_options->getOption('item_width'); ?>;
 <?php if($this->_options->getOption('item_background') !== "") : ?>
