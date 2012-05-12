@@ -2,7 +2,7 @@
 <?php
     if($args['detail']){
         if('1' == $args['item_modal']){
-            $detail_link = '<a href="#" onClick="show_detail(' . $args['detail'] . ')">';
+            $detail_link = '<a href="#" onClick="show_detail(event, ' . $args['detail'] . ')">';
         } else {
             $detail_link = '<a href="' . get_permalink($args['detail']) . '">';
         }

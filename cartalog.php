@@ -3,7 +3,7 @@
 Plugin Name: Cartalog
 Plugin URI: http://www.arbalestmedia.com/cartalog
 Description: Wordpress Shopping Cart Catalog add-on
-Version: 0.4.2
+Version: 0.4.1
 Author: Bruce Findleton
 Author URI: http://www.arbalestmedia.com
 Text Domain: cartalog
@@ -37,7 +37,7 @@ if(!class_exists('Cartalog')) {
     require_once(CARTALOG_PATH . "/library/class-options.php");
     require_once(CARTALOG_PATH . "/library/class-admin.php");
     
-    define('CARTALOG_VERSION', '0.4.2');
+    define('CARTALOG_VERSION', '0.4.1');
     define('CARTALOG_OPTIONS_KEY', 'cartalog_options');
 
     define('CART_CART66', 'cart66-lite/cart66.php');
