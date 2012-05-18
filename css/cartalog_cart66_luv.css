@@ -15,8 +15,7 @@ article.storeItem {
 	position:relative;
 }
 
-.Cart66Success,
-.Cart66Error, .Cart66Warning {
+.Cart66Success {
   position:absolute;
   top:20px;
   left:0px;
@@ -24,4 +23,18 @@ article.storeItem {
 
 .Cart66CartButton .purAddToCart {
 	margin-top: 3px;
+}
+
+#accountManagementLink {
+	margin: 20px 0;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#accountManagementLink a {
+	text-decoration: underline;
+}
+
+#accountManagementLink a:after {
+	content: url("../images/external.png");
 }

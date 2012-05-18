@@ -73,13 +73,11 @@ $ui_themes = $defaults['ui_themes'];
                     <h3>General <span><img class="ajax-feedback" alt="" title="" src="images/wpspin_light.gif"/></span></h3>
                 </div>
                 <div class="widget-holder">
-                <div>
-                <ul>
-
-
-                <li class="hidden">
-<label class="cartalog_label" for="options-cart_vendor">Cart Vendor *</label>
-<select id="options-cart_vendor" name='options[cart_vendor]'>
+                    <div>
+                        <ul>
+                            <li class="hidden">
+                                <label class="cartalog_label" for="options-cart_vendor">Cart Vendor *</label>
+                                <select id="options-cart_vendor" name='options[cart_vendor]'>
 <?php
     foreach($carts as $cart){
         if($cart === $args['cart_vendor']){
@@ -89,21 +87,23 @@ $ui_themes = $defaults['ui_themes'];
             $selected = "";
         }
 ?>
-    <option value="<?php echo $cart?>" <?php echo $selected?>><?php echo $cart?></option>
-<?php
-    } ?>
-</select>
-</li>
+                                    <option value="<?php echo $cart?>" <?php echo $selected?>><?php echo $cart?></option>
+<?php } ?>
+                                </select>
+                            </li>
+                            <li>
+                                <label class="cartalog_label" for="options-custom_styles">Custom Stylesheet</label>
+                                <input class="cartalog_input"
+                                        type="text"
+                                        style="width: 175px;"
+                                        id="options-custom_styles"
+                                        name="options[custom_styles]" value="<?php echo $args['custom_styles']?>" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-<li>
-<label class="cartalog_label" for="options-custom_styles">Custom Stylesheet</label>
-<input class="cartalog_input" type="text" style="width: 175px;" id="options-custom_styles" name="options[custom_styles]" value="<?php echo $args['custom_styles']?>" />
-</li>
-
-            </ul>
-          </div>
-        </div>
-      </div>
             <div class="widgets-holder-wrap">
                 <div class="sidebar-name">
                     <div class="sidebar-name-arrow"><br/></div>
