@@ -1,11 +1,11 @@
 <?php // Item template ?>
 <?php
     if($args['detail']){
+        $detail_link = '<a href="' . get_permalink($args['detail']) . '"';
         if('1' == $args['item_modal']){
-            $detail_link = '<a href="#" onClick="show_detail(event, ' . $args['detail'] . ')">';
-        } else {
-            $detail_link = '<a href="' . get_permalink($args['detail']) . '">';
+            $detail_link .= ' onClick="show_detail(event, ' . $args['detail'] . ')"';
         }
+        $detail_link .= '>';
     }
     else {
         $detail_link = null;
