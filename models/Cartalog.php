@@ -81,6 +81,7 @@ class Cartalog {
     {
         if ( '1' === $this->_options->getOption( 'item_modal' ) ) {
 
+            wp_enqueue_script( 'jquery-ui-core' );
             wp_enqueue_script( 'jquery-ui-dialog' );
 
             wp_enqueue_script(
@@ -102,7 +103,7 @@ class Cartalog {
 
             if ( 'none' !== $this->_options->getOption( 'ui_theme' ) ) {
                 $ui_theme = $this->_options->getOption('ui_theme');
-                $ui_url = 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/' . $ui_theme . '/jquery-ui.css';
+                $ui_url = 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/' . $ui_theme . '/jquery-ui.css';
             }
             
             wp_enqueue_style( 'custom-jquery-ui-dialog', $ui_url );
