@@ -11,13 +11,12 @@ function show_detail(evt, postID){
             displayNonce : ajax_object.displayNonce
         },
         function( response ) {
-            var divID = $jq(".detail_display_area_" + postID);
-            var title = $jq(divID).parents(".storeItem").siblings(".categoryDetail").text();
+            var divID = $jq("<div class='cartalog-item-display-this'></div>")
+				.appendTo("body");
 			$jq(divID)
 				.html(response)
 				.dialog({
 					modal       : true,
-                    title       : title,
 					width       : 750,
 					position    : "center",
 					hide        : 'fade',
@@ -27,12 +26,12 @@ function show_detail(evt, postID){
                                       $jq('.ui-widget-overlay')
                                           .on('click',function(){
                                               $jq(divID).dialog('close');
-                                              $jq(divID).empty();
+											  setTimeout(function() { $jq(divID).remove(); }, 1000);
                                           });
                                   },
 					buttons     : { "Close" : function() {
                                           $jq(this).dialog('close');
-                                          $jq(this).empty();
+										  setTimeout(function() { $jq(divID).remove(); }, 1000);
                                   } }
 				});
 			$jq('.detail_controls').remove();
