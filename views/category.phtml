@@ -2,11 +2,13 @@
 
 <div class="categoryWrap <?php if (null !== $args['class']) : echo $args['class']; endif; ?> cf">
 
-    <div class="categoryTitle categoryDetail"<?php
+    <div class="categoryTitle"<?php
         if (null !== $args['style']) {
             echo ' style="' . $args['style'] . '"';
         }
-    ?>><?php echo $args['title'] ?></div>
+    ?>><?php echo $args['title'] ?>
+		<?php if($args['next_link']) { echo '<a href="' . $args['next_link'] . '" class="categoryNextLink"  style="float:right;display:inline;"><span>' . $args['next_text'] . ' &raquo;</span></a>';} ?>
+	</div>
     <?php echo do_shortcode($content) ?>
 </div>
 

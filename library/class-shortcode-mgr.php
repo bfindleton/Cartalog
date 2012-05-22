@@ -17,9 +17,11 @@ class Shortcode_Mgr
     {
         $defaults = array
         (
-            'title' => null,
-            'style' => null,
-            'class' => null,
+            'title'     => null,
+            'next_link' => null,
+            'next_text' => null,
+            'style'     => null,
+            'class'     => null,
         );
         
         $args = shortcode_atts($defaults, $attr);
